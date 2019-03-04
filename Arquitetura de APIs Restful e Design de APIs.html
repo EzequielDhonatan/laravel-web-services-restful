@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Arquitetura de APIs Restful e Design de APIs</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+
+        <h1>Verbos HTTP</h1>
+
+        <p><strong>GET: </strong>https://dominio.com.br/api/products - <strong>(Listar)</strong></p>
+        <p><strong>POST: </strong>https://dominio.com.br/api/products - <strong>(Cadastrar)</strong></p>
+        <p><strong>PUT: </strong>https://dominio.com.br/api/products/3 - <strong>(Editar)</strong></p>
+        <p><strong>DELETE: </strong>https://dominio.com.br/api/products/2 - <strong>(Excluir)</strong></p>
+
+        <hr />
+
+        <h1>Status Code</h1>
+
+        <p>2** - <strong>(Sucess)</strong></p>
+        <p>3** - <strong>(Redirect)</strong></p>
+        <p>4** - <strong>(Client Error)</strong></p>
+        <p>5** - <strong>(Server Error)</strong></p>
+
+        <h1>Status Code 2**</h1>
+
+        <p>200 - <strong>(OK)</strong></p>
+        <p>201 - <strong>(Created)</strong></p>
+        <p>204 - <strong>(No Content)</strong></p>
+
+        <h1>Status Code 3**</h1>
+
+        <p>304 - <strong>(Not Modified)</strong></p>
+
+
+        <h1>Status Code 4**</h1>
+
+        <p>400 - <strong>(bad Request)</strong></p>
+        <p>401 - <strong>(Unauthorized)</strong></p>
+        <p>403 - <strong>(Forbidden)</strong></p>
+        <p>404 - <strong>(Not Found)</strong></p>
+        <p>414 - <strong>(Gone)</strong></p>
+        <p>422 - <strong>(Status de erro de validação)</strong></p>
+
+        <h1>Status Code 5**</h1>
+
+        <p>500 - <strong>(Internal Server Error)</strong></p>
+        <p>503 - <strong>(Service Unavailable)</strong></p>
+
+        <hr />
+
+        <h1>CORS (Cross-origin resource sharing)</h1>
+        
+        <p>Controlar permissões de requisição - (headers)</p>
+
+        <hr />
+
+        <h1>Tratamento de Erros</h1>
+        
+        <p>Interceptar erros e exceções - (app/Exceptions/Handler.php)</p>
+
+        <hr />
+
+        <h1>Middlewares</h1>
+        
+        <p>Total de requisição / tempo</p>
+
+    
+    </body>
+</html>

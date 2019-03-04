@@ -23,11 +23,20 @@ class CategoryController extends Controller
         return response()->json($categories, 200);
     }
 
+
+    public function show($id)
+    {
+        if (!$category = $this->category->find($id))
+            return response()->json(['error' => 'Not Found'], 404);
+
+        return response()->json($category);
+    }
+
     public function store(StoreUpdateCategoryFormRequest $request)
     {
         $category = $this->category->create($request->all());
 
-        return response()->json($category, 201);
+        return response()->json($category);
     }
 
     public function update(StoreUpdateCategoryFormRequest $request, $id)
@@ -37,7 +46,7 @@ class CategoryController extends Controller
 
         $category->update($request->all());
 
-        return response()->json($category, 200);
+        return response()->json($category);
     }
 
     public function destroy(Request $request, $id)

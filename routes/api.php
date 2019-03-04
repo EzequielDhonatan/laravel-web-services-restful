@@ -9,3 +9,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('categories', 'Api\CategoryController@index'); // LISTAR
 Route::post('categories', 'Api\CategoryController@store'); // CADASTRAR
 Route::put('categories/{id}', 'Api\CategoryController@update'); // ATUALIZAR
+Route::delete('categories/{id}', 'Api\CategoryController@delete'); // DELETAR

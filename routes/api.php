@@ -7,10 +7,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 /*
-Route::get('categories', 'Api\CategoryController@index'); // LISTAR
-Route::post('categories', 'Api\CategoryController@store'); // CADASTRAR
-Route::put('categories/{id}', 'Api\CategoryController@update'); // ATUALIZAR
-Route::delete('categories/{id}', 'Api\CategoryController@delete'); // DELETAR
+route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'], function() {
+    Route::get('categories', 'CategoryController@index'); // LISTAR
+    Route::post('categories', 'CategoryController@store'); // CADASTRAR
+    Route::put('categories/{id}', 'CategoryController@update'); // ATUALIZAR
+    Route::delete('categories/{id}', 'CategoryController@delete'); // DELETAR
+});
 */
 
 /*
@@ -19,7 +21,12 @@ route::resource('categories', 'Api\CategoryController', [
 ]);
 */
 
-route::get('categories/{id}/products', 'Api\CategoryController@products');
-route::apiResource('categories', 'Api\CategoryController');
+route::group(['prefix' => 'v1', 'namespace' => 'Api\V1'], function() {
 
-route::apiResource('products', 'Api\ProductController');
+    // # CATEGORY
+    route::get('categories/{id}/products', 'CategoryController@products');
+    route::apiResource('categories', 'CategoryController');
+
+    // # PRODUCT
+    route::apiResource('products', 'ProductController');
+});

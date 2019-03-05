@@ -19,5 +19,7 @@ route::resource('categories', 'Api\CategoryController', [
 ]);
 */
 
+route::get('categories/{id}/products', 'Api\CategoryController@products');
 route::apiResource('categories', 'Api\CategoryController');
+
 route::apiResource('products', 'Api\ProductController');

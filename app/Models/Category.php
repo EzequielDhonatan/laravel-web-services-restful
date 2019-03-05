@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Products;
 
 class Category extends Model
 {
@@ -14,5 +15,10 @@ class Category extends Model
             return $this->get();
 
         return $this->where('name', 'LIKE', "%{$name}%")->get();
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class); // RELACIONAMENTO DE UM PARA MUITOS
     }
 }

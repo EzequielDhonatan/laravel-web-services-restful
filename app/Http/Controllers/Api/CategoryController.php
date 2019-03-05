@@ -10,6 +10,7 @@ use App\Http\Requests\StoreUpdateCategoryFormRequest;
 class CategoryController extends Controller
 {
     private $category;
+    private $totalPage = 10;
 
     public function __construct(Category $category)
     {
@@ -57,5 +58,18 @@ class CategoryController extends Controller
         $category->delete();
 
         return response()->json(['success' => true], 204);
+    }
+
+    public function products($id)
+    {
+        if (!$category = $this->category->find($id))
+            return response()->json(['error' => 'Not Found'], 404);
+
+        $products = $category->products()->paginate($this->totalPage);
+
+        return response()->json([
+            'category' => $category,
+            'products' => $products,
+        ]);
     }
 }

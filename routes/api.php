@@ -20,5 +20,4 @@ route::resource('categories', 'Api\CategoryController', [
 */
 
 route::apiResource('categories', 'Api\CategoryController');
-
 route::apiResource('products', 'Api\ProductController');
